@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms & User Input</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 400px; margin: 20px auto; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        label { display: block; margin-top: 10px; }
+        input, select, textarea { width: 100%; padding: 5px; margin-top: 5px; }
+        button { margin-top: 10px; padding: 8px; background: blue; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: darkblue; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Forms & User Input</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Example Form</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+                
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                </select>
+                
+                <label><input type="checkbox" name="subscribe"> Subscribe to newsletter</label>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Forms & User Input Demo</p>
+    </footer>
+</body>
+</html>

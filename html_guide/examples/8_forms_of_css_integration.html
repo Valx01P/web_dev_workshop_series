@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Forms of CSS Integration</title>
+    
+    <!-- 1. External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- 2. Internal CSS -->
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+        h1 { color: navy; }
+        .inline-style { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>8 Forms of CSS Integration</h1>
+    </header>
+    <main>
+        <section>
+            <h2>1. External CSS</h2>
+            <p>CSS is linked from an external stylesheet using the <code>&lt;link&gt;</code> tag.</p>
+        </section>
+        
+        <section>
+            <h2>2. Internal CSS</h2>
+            <p>CSS rules are defined within the <code>&lt;style&gt;</code> tag inside the <code>&lt;head&gt;</code> section.</p>
+        </section>
+        
+        <section>
+            <h2>3. Inline CSS</h2>
+            <p style="color: green; font-weight: bold;">This text is styled with inline CSS.</p>
+        </section>
+        
+        <section>
+            <h2>4. ID Selectors</h2>
+            <p id="unique">This paragraph is styled using an ID selector.</p>
+            <style>#unique { color: blue; font-style: italic; }</style>
+        </section>
+        
+        <section>
+            <h2>5. Class Selectors</h2>
+            <p class="inline-style">This paragraph is styled using a class selector.</p>
+        </section>
+        
+        <section>
+            <h2>6. Element Selectors</h2>
+            <p>This paragraph is styled using an element selector in the internal CSS.</p>
+        </section>
+        
+        <section>
+            <h2>7. Attribute Selectors</h2>
+            <p><input type="text" placeholder="This input is styled via attribute selector."></p>
+            <style>input[type="text"] { border: 2px solid purple; padding: 5px; }</style>
+        </section>
+        
+        <section>
+            <h2>8. Pseudo-classes & Pseudo-elements</h2>
+            <p class="hover-effect">Hover over this text to see the effect.</p>
+            <style>
+                .hover-effect:hover { color: orange; text-decoration: underline; }
+                p::first-letter { font-size: 1.5em; color: darkred; }
+            </style>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 CSS Integration Demo</p>
+    </footer>
+</body>
+</html>

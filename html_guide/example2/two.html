@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #3b5998;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-title {
+            font-size: 1.5em;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            background-color: #e6f0ff;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            background-color: #add8e6;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Projects Section Styles */
+        .projects {
+            padding: 60px 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-item {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-item h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section Styles */
+        .contact {
+            padding: 60px 20px;
+            background-color: #e6f0ff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact a {
+            color: #3b5998;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #3b5998;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-title">My Portfolio</div>
+        <div class="navbar-links">
+            <a href="#hero">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>About Me</h1>
+            <p>Passionate developer dedicated to leveraging AI and ML to solve real-world problems. My mission is to create innovative solutions that improve efficiency and drive positive change.</p>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <h3>AI-Powered Image Recognition</h3>
+                <p>Developed an image recognition system using convolutional neural networks for accurate object detection.</p>
+            </div>
+            <div class="project-item">
+                <h3>Machine Learning for Predictive Analysis</h3>
+                <p>Created a predictive model using machine learning algorithms to forecast sales trends and improve business strategy.</p>
+            </div>
+            <div class="project-item">
+                <h3>Natural Language Processing Chatbot</h3>
+                <p>Built a chatbot utilizing NLP techniques to provide automated customer support and enhance user experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out!</p>
+        <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add any JavaScript functionality here if needed
+    </script>
+
+</body>
+</html>

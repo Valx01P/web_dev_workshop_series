@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putting It All Together</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Internal CSS -->
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+        h1 { color: navy; }
+        .highlight { color: red; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        ul, ol, dl { margin: 20px 0; }
+        dt { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Putting It All Together</h1>
+        <nav>
+            <ul>
+                <li><a href="#text">Text Elements</a></li>
+                <li><a href="#forms">Forms & Inputs</a></li>
+                <li><a href="#tables">Tables & Lists</a></li>
+                <li><a href="#media">Images & Multimedia</a></li>
+                <li><a href="#semantic">Semantic HTML</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="text">
+            <h2>Text Elements</h2>
+            <p><strong>Bold text</strong>, <em>Italic text</em>, <u>Underlined text</u></p>
+            <p class="highlight">Highlighted text using a CSS class.</p>
+        </section>
+        
+        <section id="forms">
+            <h2>Forms & Inputs</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        
+        <section id="tables">
+            <h2>Tables & Lists</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>30</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        </section>
+        
+        <section id="media">
+            <h2>Images & Multimedia</h2>
+            <img src="image.jpg" alt="Example Image" width="300">
+            <video width="320" height="240" controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        
+        <section id="semantic">
+            <h2>Semantic HTML & Accessibility</h2>
+            <article>
+                <p>Semantic HTML enhances readability and accessibility by using meaningful tags.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Full HTML Showcase</p>
+    </footer>
+</body>
+</html>

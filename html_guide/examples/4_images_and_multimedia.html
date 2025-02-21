@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Elements Showcase</title>
+    <style>
+        .highlight { color: red; }
+        .underline { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Elements Showcase</h1>
+        <nav>
+            <ul>
+                <li><a href="#text-elements">Text Elements</a></li>
+                <li><a href="#link-navigation">Links & Navigation</a></li>
+                <li><a href="#images-multimedia">Images & Multimedia</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="text-elements">
+            <h2>Basic Text Formatting</h2>
+            <p><strong>Bold text</strong>, <em>Italic text</em>, <u>Underlined text</u></p>
+            <p><small>Small text</small>, <mark>Highlighted text</mark>, <del>Deleted text</del>, <ins>Inserted text</ins></p>
+        </section>
+        
+        <section id="link-navigation">
+            <h2>Links & Navigation Elements</h2>
+            <p><a href="https://example.com" target="_blank">External Link (Opens in new tab)</a></p>
+            <p><a href="#footer">Internal Link (Jump to Footer)</a></p>
+            <p><a href="mailto:email@example.com">Email Link</a></p>
+            <p><a href="tel:+1234567890">Telephone Link</a></p>
+            <p>
+                <a href="#" onclick="alert('Button clicked!');" style="text-decoration: none; padding: 5px; background: blue; color: white; border-radius: 5px;">Styled Button Link</a>
+            </p>
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p>Breadcrumb navigation:</p>
+            <nav>
+                <a href="/">Home</a> &gt; <a href="/category">Category</a> &gt; <a href="/current">Current Page</a>
+            </nav>
+        </section>
+        
+        <section id="images-multimedia">
+            <h2>Images & Multimedia</h2>
+            <p>Standard Image:</p>
+            <img src="../example1/image.jpg" alt="Example Image" width="300">
+            
+            <p>Image as a Link:</p>
+            <a href="https://example.com">
+                <img src="../example1/image.jpg" alt="Clickable Image" width="300">
+            </a>
+            
+            <p>Video Example:</p>
+            <video width="320" height="240" controls>
+                <source src="../example1/source/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <p>Audio Example:</p>
+            <audio controls>
+                <source src="../example1/source/audio.m4a" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <p>Embedded Content (YouTube Video Example):</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="660" height="395" src="https://www.youtube.com/embed/F_ovyQK0LFg" title="Chill Guy Rizzing up Girls!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </section>
+    </main>
+    <footer id="footer">
+        <p>&copy; 2025 HTML Showcase Demo</p>
+    </footer>
+</body>
+</html>
