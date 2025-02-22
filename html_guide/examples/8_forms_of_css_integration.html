@@ -10,18 +10,38 @@
     
     <!-- 2. Internal CSS -->
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
-        h1 { color: navy; }
-        .inline-style { color: red; font-weight: bold; }
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+        }
+
+        .big-text {
+          font-size: 7em;
+        }
+
+        #title {
+          color: navy;
+
+        }
+
+        .inline-style {
+          color: red;
+          font-weight: bold;
+        }
+
+        .css {
+          color: purple;
+          font-style: italic;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>8 Forms of CSS Integration</h1>
+        <h1 class="big-text" id="title">8 Forms of CSS Integration</h1>
     </header>
     <main>
         <section>
-            <h2>1. External CSS</h2>
+            <h2 class="big-text css inline-style ">1. External CSS</h2>
             <p>CSS is linked from an external stylesheet using the <code>&lt;link&gt;</code> tag.</p>
         </section>
         
