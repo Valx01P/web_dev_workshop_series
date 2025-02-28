@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Text Container */
+.text-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Font Families */
+.serif {
+  font-family: "Times New Roman", serif;
+}
+
+.sans-serif {
+  font-family: Arial, sans-serif;
+}
+
+.monospace {
+  font-family: "Courier New", monospace;
+}
+
+.cursive {
+  font-family: "Brush Script MT", cursive;
+}
+
+/* Font Weights & Styles */
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold-italic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+/* Text Alignment */
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.justify {
+  text-align: justify;
+}
+
+/* Text Decoration */
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.overline {
+  text-decoration: overline;
+}
+
+/* Spacing & Effects */
+.letter-spacing {
+  letter-spacing: 3px;
+}
+
+.word-spacing {
+  word-spacing: 10px;
+}
+
+.line-height {
+  line-height: 2;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  background-color: #34495e;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}

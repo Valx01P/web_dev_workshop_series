@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Controls Styling */
+.controls {
+  margin-bottom: 20px;
+}
+
+label {
+  margin: 5px;
+  font-weight: bold;
+}
+
+select {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  background-color: white;
+  padding: 10px;
+  border: 2px solid #2c3e50;
+  width: 80%;
+  margin: auto;
+  gap: 10px; /* Space between grid items */
+  
+  /* Default Grid Properties */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 100px);
+  justify-items: stretch;
+  align-items: stretch;
+  justify-content: start;
+  align-content: start;
+}
+
+/* Grid Items */
+.grid-item {
+  background-color: #e67e22;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+/* Special Grid Items with Spans */
+.item1 {
+  grid-column: span 2;
+}
+
+.item4 {
+  grid-row: span 2;
+}

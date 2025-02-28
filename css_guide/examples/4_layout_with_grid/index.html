@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Interactive Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Interactive CSS Grid Playground</h1>
+    </header>
+
+    <!-- Grid Controls -->
+    <div class="controls">
+        <label>Columns: 
+            <select id="grid-columns">
+                <option value="repeat(2, 1fr)">2 Columns</option>
+                <option value="repeat(3, 1fr)">3 Columns</option>
+                <option value="repeat(4, 1fr)">4 Columns</option>
+                <option value="repeat(5, 1fr)">5 Columns</option>
+            </select>
+        </label>
+
+        <label>Rows: 
+            <select id="grid-rows">
+                <option value="repeat(2, 100px)">2 Rows</option>
+                <option value="repeat(3, 100px)">3 Rows</option>
+                <option value="repeat(4, 100px)">4 Rows</option>
+            </select>
+        </label>
+
+        <label>Gap: 
+            <select id="grid-gap">
+                <option value="5px">5px</option>
+                <option value="10px">10px</option>
+                <option value="20px">20px</option>
+            </select>
+        </label>
+
+        <label>Justify Items: 
+            <select id="justify-items">
+                <option value="stretch">Stretch</option>
+                <option value="start">Start</option>
+                <option value="center">Center</option>
+                <option value="end">End</option>
+            </select>
+        </label>
+
+        <label>Align Items: 
+            <select id="align-items">
+                <option value="stretch">Stretch</option>
+                <option value="start">Start</option>
+                <option value="center">Center</option>
+                <option value="end">End</option>
+            </select>
+        </label>
+
+        <label>Justify Content: 
+            <select id="justify-content">
+                <option value="start">Start</option>
+                <option value="center">Center</option>
+                <option value="end">End</option>
+                <option value="space-between">Space Between</option>
+                <option value="space-around">Space Around</option>
+                <option value="space-evenly">Space Evenly</option>
+            </select>
+        </label>
+
+        <label>Align Content: 
+            <select id="align-content">
+                <option value="start">Start</option>
+                <option value="center">Center</option>
+                <option value="end">End</option>
+                <option value="space-between">Space Between</option>
+                <option value="space-around">Space Around</option>
+                <option value="space-evenly">Space Evenly</option>
+            </select>
+        </label>
+    </div>
+
+    <!-- Grid Container -->
+    <div class="grid-container">
+        <div class="grid-item item1">1</div>
+        <div class="grid-item item2">2</div>
+        <div class="grid-item item3">3</div>
+        <div class="grid-item item4">4</div>
+        <div class="grid-item item5">5</div>
+        <div class="grid-item item6">6</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

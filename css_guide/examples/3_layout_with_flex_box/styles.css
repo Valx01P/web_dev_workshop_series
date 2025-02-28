@@ -1,0 +1,55 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Controls Styling */
+.controls {
+  margin-bottom: 20px;
+}
+
+label {
+  margin: 5px;
+  font-weight: bold;
+}
+
+select {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+/* Flexbox Container */
+.flex-container {
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  border: 2px solid #2c3e50;
+  min-height: 200px;
+  width: 80%;
+  margin: auto;
+  gap: 10px; /* Space between items */
+}
+
+/* Flexbox Items */
+.flex-item {
+  background-color: #e67e22;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  flex: 1; /* Items grow equally */
+  min-width: 50px;
+}
