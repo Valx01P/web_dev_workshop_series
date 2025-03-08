@@ -169,9 +169,11 @@ if (5 === 5) {
 
 // 3. Use comparison operators in conditional statements
 const age = 25;
-if (age >= 18) {
+if (age != 18) {
   console.log("Adult");
 } else {
+  let yearsLeft = 18 - age;
+  console.log("Minor, years until adult:", yearsLeft);
   console.log("Minor");
 }
 

@@ -13,7 +13,7 @@ let modernVariable = "I can be changed later";
 modernVariable = "See? I changed";
 
 // 3. const - block scoped, cannot be reassigned
-const constantVariable = "I cannot be changed";
+const constantVariable = 'I cannot be changed';
 // constantVariable = "This would cause an error";
 
 // ---- PRIMITIVE DATA TYPES ----

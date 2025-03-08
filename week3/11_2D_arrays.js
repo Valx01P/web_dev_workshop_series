@@ -321,9 +321,11 @@ console.timeEnd('Pre-allocation');
 // Efficient (Row-major order)
 console.time('Row-major iteration');
 for (let i = 0; i < 1000; i++) {
+
   for (let j = 0; j < 1000; j++) {
     preAllocated[i][j] = i + j;
   }
+
 }
 console.timeEnd('Row-major iteration');
 

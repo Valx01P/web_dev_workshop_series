@@ -53,6 +53,8 @@ console.log("Exponentiation (2^3):", power);  // 8
 // 1. Increment (++)
 let count = 5;
 count++;  // Post-increment: use the current value, then increment
+count += 1;
+count = 1 + count;
 console.log("After post-increment:", count);  // 6
 
 // Pre-increment

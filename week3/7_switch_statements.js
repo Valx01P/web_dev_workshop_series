@@ -331,7 +331,7 @@ console.log(engineMessage); // Output: This browser uses the Blink engine
 
 // 4. Block scope in case clauses
 // Each case creates its own lexical scope with let/const
-const userType = 'premium';
+const userType = 'something';
 
 switch (userType) {
   case 'basic': {

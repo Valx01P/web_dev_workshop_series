@@ -1,353 +1,464 @@
 // ==========================================
-// JAVASCRIPT FOR LOOPS
+// JAVASCRIPT ARRAYS
 // ==========================================
 
-// For loops are one of the most common ways to iterate in JavaScript
-// They provide a concise way to repeat code a specific number of times
+// Arrays in JavaScript are ordered collections of items
+// They can store multiple values of any type in a single variable
 
-// ---- BASIC FOR LOOP ----
+// ---- CREATING ARRAYS ----
 
-// 1. Standard for loop syntax:
-// for (initialization; condition; iteration) { code block }
+// 1. Array literal (most common)
+const fruits = ['apple', 'banana', 'orange'];
+console.log(fruits); // ['apple', 'banana', 'orange']
 
-// Count from 1 to 5
-for (let i = 1; i <= 5; i++) {
-  console.log(`Count: ${i}`);
-}
-// Output:
-// Count: 1
-// Count: 2
-// Count: 3
-// Count: 4
-// Count: 5
+// 2. Using the Array constructor
+const numbers = new Array(1, 2, 3, 4, 5);
+console.log(numbers); // [1, 2, 3, 4, 5]
 
-// 2. Breaking down the three parts of a for loop:
-// - Initialization: Runs once before the loop starts (let i = 0)
-// - Condition: Checked before each iteration; loop continues if true (i < 5)
-// - Iteration: Runs after each iteration (i++)
+// CAUTION: When passing a single number to Array constructor, 
+// it creates an array with that many empty slots
+const emptySlots = new Array(3);
+console.log(emptySlots); // [empty × 3]
+console.log(emptySlots.length); // 3
 
-// ---- LOOPING THROUGH ARRAYS ----
+// 3. Creating an array from an array-like object or iterable
+const arrayFromString = Array.from('hello');
+console.log(arrayFromString); // ['h', 'e', 'l', 'l', 'o']
 
-// 1. Iterating through array elements
-const fruits = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple'];
+// Array.from with map function
+const squares = Array.from([1, 2, 3, 4], x => x * x);
+console.log(squares); // [1, 4, 9, 16]
 
-for (let i = 0; i < fruits.length; i++) {
-  console.log(`Fruit ${i + 1}: ${fruits[i]}`);
-}
-// Output:
-// Fruit 1: Apple
-// Fruit 2: Banana
-// Fruit 3: Orange
-// Fruit 4: Mango
-// Fruit 5: Pineapple
+// 4. Array.of - creates an array from its arguments
+const mixedArray = Array.of(1, 'two', true, null);
+console.log(mixedArray); // [1, 'two', true, null]
 
-// 2. Iterating backwards
-for (let i = fruits.length - 1; i >= 0; i--) {
-  console.log(`Reverse order - Fruit ${i + 1}: ${fruits[i]}`);
-}
-// Output:
-// Reverse order - Fruit 5: Pineapple
-// Reverse order - Fruit 4: Mango
-// Reverse order - Fruit 3: Orange
-// Reverse order - Fruit 2: Banana
-// Reverse order - Fruit 1: Apple
+// ---- ARRAY PROPERTIES AND BASIC METHODS ----
 
-// 3. Skipping elements (every other element)
-for (let i = 0; i < fruits.length; i += 2) {
-  console.log(`Every other fruit: ${fruits[i]}`);
-}
-// Output:
-// Every other fruit: Apple
-// Every other fruit: Orange
-// Every other fruit: Pineapple
+// 1. length property - returns the number of elements
+console.log(fruits.length); // 3
 
-// ---- NESTED FOR LOOPS ----
+// Modifying length can truncate the array
+const colors = ['red', 'green', 'blue', 'yellow'];
+colors.length = 2;
+console.log(colors); // ['red', 'green']
 
-// 1. Basic nested loop (multiplication table)
-console.log('Multiplication Table (1-3):');
-for (let i = 1; i <= 3; i++) {
-  for (let j = 1; j <= 3; j++) {
-    console.log(`${i} × ${j} = ${i * j}`);
-  }
-  console.log('---'); // Separator between tables
-}
-// Output:
-// Multiplication Table (1-3):
-// 1 × 1 = 1
-// 1 × 2 = 2
-// 1 × 3 = 3
-// ---
-// 2 × 1 = 2
-// 2 × 2 = 4
-// 2 × 3 = 6
-// ---
-// 3 × 1 = 3
-// 3 × 2 = 6
-// 3 × 3 = 9
-// ---
+// 2. Accessing array elements (zero-based indexing)
+console.log(fruits[0]); // 'apple'
+console.log(fruits[1]); // 'banana'
+console.log(fruits[2]); // 'orange'
 
-// 2. Working with multi-dimensional arrays
+// Accessing non-existent elements returns undefined
+console.log(fruits[10]); // undefined
+
+// 3. Modifying array elements
+fruits[1] = 'kiwi';
+console.log(fruits); // ['apple', 'kiwi', 'orange']
+
+// 4. Adding elements to an array
+// a. push() - adds elements to the end
+fruits.push('grape');
+console.log(fruits); // ['apple', 'kiwi', 'orange', 'grape']
+
+// push() returns the new length of the array
+const newLength = fruits.push('mango', 'pineapple');
+console.log(newLength); // 6
+console.log(fruits); // ['apple', 'kiwi', 'orange', 'grape', 'mango', 'pineapple']
+
+// b. unshift() - adds elements to the beginning
+fruits.unshift('strawberry');
+console.log(fruits); // ['strawberry', 'apple', 'kiwi', 'orange', 'grape', 'mango', 'pineapple']
+
+// 5. Removing elements from an array
+// a. pop() - removes the last element and returns it
+const lastFruit = fruits.pop();
+console.log(lastFruit); // 'pineapple'
+console.log(fruits); // ['strawberry', 'apple', 'kiwi', 'orange', 'grape', 'mango']
+
+// b. shift() - removes the first element and returns it
+const firstFruit = fruits.shift();
+console.log(firstFruit); // 'strawberry'
+console.log(fruits); // ['apple', 'kiwi', 'orange', 'grape', 'mango']
+
+// 6. Finding elements in an array
+// a. indexOf() - returns the first index of an element, or -1 if not found
+console.log(fruits.indexOf('kiwi')); // 1
+console.log(fruits.indexOf('watermelon')); // -1
+
+// b. lastIndexOf() - returns the last index of an element, or -1 if not found
+const repeatedArray = [1, 2, 3, 2, 1];
+console.log(repeatedArray.lastIndexOf(2)); // 3
+console.log(repeatedArray.lastIndexOf(4)); // -1
+
+// c. includes() - returns true if an element exists in the array
+console.log(fruits.includes('orange')); // true
+console.log(fruits.includes('watermelon')); // false
+
+// ---- ARRAY METHODS FOR ADDING/REMOVING ELEMENTS ----
+
+// 1. splice() - add, remove, or replace elements at any position
+const letters = ['a', 'b', 'c', 'd', 'e'];
+
+// Remove 2 elements starting at index 1
+const removed = letters.splice(1, 2);
+console.log(removed); // ['b', 'c']
+console.log(letters); // ['a', 'd', 'e']
+
+// Add elements at index 1
+letters.splice(1, 0, 'x', 'y');
+console.log(letters); // ['a', 'x', 'y', 'd', 'e']
+
+// Replace 2 elements at index 2
+letters.splice(2, 2, 'hello', 'world');
+console.log(letters); // ['a', 'x', 'hello', 'world', 'e']
+
+// 2. slice() - creates a shallow copy of a portion of an array
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+// Extract from index 2 to index 4 (exclusive)
+console.log(animals.slice(2, 4)); // ['camel', 'duck']
+
+// Extract from index 2 to the end
+console.log(animals.slice(2)); // ['camel', 'duck', 'elephant']
+
+// Extract the last 2 elements
+console.log(animals.slice(-2)); // ['duck', 'elephant']
+
+// Create a copy of the entire array
+const animalsCopy = animals.slice();
+console.log(animalsCopy); // ['ant', 'bison', 'camel', 'duck', 'elephant']
+
+// 3. concat() - merge arrays
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combinedArray = array1.concat(array2);
+console.log(combinedArray); // [1, 2, 3, 4, 5, 6]
+
+// Can concatenate multiple arrays
+const array3 = [7, 8, 9];
+const multiCombined = array1.concat(array2, array3, 10, 11);
+console.log(multiCombined); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+// ---- ARRAY METHODS FOR TRANSFORMING ARRAYS ----
+
+// 1. map() - creates a new array with the results of a function on each element
+const numbersArray = [1, 2, 3, 4, 5];
+const doubled = numbersArray.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// map() with index parameter
+const indexed = numbersArray.map((num, index) => `${index}: ${num}`);
+console.log(indexed); // ['0: 1', '1: 2', '2: 3', '3: 4', '4: 5']
+
+// 2. filter() - creates a new array with elements that pass a test
+const evenNumbers = numbersArray.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4]
+
+const largeNumbers = numbersArray.filter(num => num > 3);
+console.log(largeNumbers); // [4, 5]
+
+// 3. reduce() - reduce array to a single value
+const sum = numbersArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // 15 (1+2+3+4+5)
+
+// reduce() with a different initial value
+const sumPlusTen = numbersArray.reduce((acc, cur) => acc + cur, 10);
+console.log(sumPlusTen); // 25 (10+1+2+3+4+5)
+
+// More complex reduce example - counting occurrences
+const pets = ['dog', 'cat', 'dog', 'fish', 'cat', 'dog'];
+const petCounts = pets.reduce((counts, pet) => {
+  counts[pet] = (counts[pet] || 0) + 1;
+  return counts;
+}, {});
+console.log(petCounts); // { dog: 3, cat: 2, fish: 1 }
+
+// 4. forEach() - executes a function once for each array element
+console.log('forEach example:');
+fruits.forEach((fruit, index) => {
+  console.log(`${index}: ${fruit}`);
+});
+// 0: apple
+// 1: kiwi
+// 2: orange
+// 3: grape
+// 4: mango
+
+// 5. some() - tests if at least one element passes a test
+const hasEvenNumber = numbersArray.some(num => num % 2 === 0);
+console.log('Has even number:', hasEvenNumber); // true
+
+const hasNegativeNumber = numbersArray.some(num => num < 0);
+console.log('Has negative number:', hasNegativeNumber); // false
+
+// 6. every() - tests if all elements pass a test
+const allPositive = numbersArray.every(num => num > 0);
+console.log('All positive:', allPositive); // true
+
+const allEven = numbersArray.every(num => num % 2 === 0);
+console.log('All even:', allEven); // false
+
+// 7. find() - returns the first element that passes a test
+const firstEven = numbersArray.find(num => num % 2 === 0);
+console.log('First even number:', firstEven); // 2
+
+// 8. findIndex() - returns the index of the first element that passes a test
+const firstEvenIndex = numbersArray.findIndex(num => num % 2 === 0);
+console.log('Index of first even number:', firstEvenIndex); // 1
+
+// ---- ARRAY ORDERING METHODS ----
+
+// 1. sort() - sorts the elements of an array in place
+const unsortedArray = [3, 1, 4, 1, 5, 9, 2, 6];
+unsortedArray.sort();
+console.log('Default sort:', unsortedArray); // [1, 1, 2, 3, 4, 5, 6, 9]
+
+// CAUTION: sort() converts elements to strings by default
+const mixedNumbers = [1, 5, 10, 15, 20];
+mixedNumbers.sort();
+console.log('String sort:', mixedNumbers); // [1, 10, 15, 20, 5] (sorted as strings)
+
+// Custom sort with compare function
+mixedNumbers.sort((a, b) => a - b); // Ascending
+console.log('Numeric sort (ascending):', mixedNumbers); // [1, 5, 10, 15, 20]
+
+mixedNumbers.sort((a, b) => b - a); // Descending
+console.log('Numeric sort (descending):', mixedNumbers); // [20, 15, 10, 5, 1]
+
+// Sorting objects
+const people = [
+  { name: 'John', age: 30 },
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 35 }
+];
+
+// Sort by age
+people.sort((a, b) => a.age - b.age);
+console.log('Sorted by age:', people);
+// [{name: 'Alice', age: 25}, {name: 'John', age: 30}, {name: 'Bob', age: 35}]
+
+// Sort by name
+people.sort((a, b) => a.name.localeCompare(b.name));
+console.log('Sorted by name:', people);
+// [{name: 'Alice', age: 25}, {name: 'Bob', age: 35}, {name: 'John', age: 30}]
+
+// 2. reverse() - reverses the order of elements in place
+const reversedFruits = ['apple', 'banana', 'cherry'];
+reversedFruits.reverse();
+console.log(reversedFruits); // ['cherry', 'banana', 'apple']
+
+// ---- ARRAY SEARCHING METHODS ----
+
+// 1. find() and findIndex() (already covered above)
+
+// 2. indexOf() and lastIndexOf() (already covered above)
+
+// 3. includes() (already covered above)
+
+// ---- ARRAYS AND STRINGS ----
+
+// 1. join() - converts array to string
+const elements = ['Fire', 'Air', 'Water'];
+console.log(elements.join()); // 'Fire,Air,Water'
+console.log(elements.join(' ')); // 'Fire Air Water'
+console.log(elements.join('-')); // 'Fire-Air-Water'
+console.log(elements.join('')); // 'FireAirWater'
+
+// 2. split() - converts string to array
+const csvString = 'apple,banana,cherry,date';
+const fruitArray = csvString.split(',');
+console.log(fruitArray); // ['apple', 'banana', 'cherry', 'date']
+
+const sentence = 'Hello world! How are you?';
+const words = sentence.split(' ');
+console.log(words); // ['Hello', 'world!', 'How', 'are', 'you?']
+
+const characters = sentence.split('');
+console.log(characters); // ['H', 'e', 'l', 'l', 'o', ' ', 'w', ... ]
+
+// ---- ADVANCED ARRAY CONCEPTS ----
+
+// 1. Nested arrays (multi-dimensional arrays)
 const matrix = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9]
 ];
 
-console.log('Matrix values:');
-for (let row = 0; row < matrix.length; row++) {
-  let rowValues = '';
-  for (let col = 0; col < matrix[row].length; col++) {
-    rowValues += matrix[row][col] + ' ';
+console.log(matrix[1][2]); // 6 (row 1, column 2)
+
+// Looping through a 2D array
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    console.log(`matrix[${i}][${j}] = ${matrix[i][j]}`);
   }
-  console.log(rowValues);
 }
-// Output:
-// Matrix values:
-// 1 2 3 
-// 4 5 6 
-// 7 8 9 
 
-// ---- BREAK AND CONTINUE IN FOR LOOPS ----
+// 2. Destructuring arrays
+const [first, second, third] = [10, 20, 30];
+console.log(first, second, third); // 10 20 30
 
-// 1. Using break to exit the loop early
-console.log('Finding the first even number:');
-const numbers = [7, 9, 13, 4, 11, 5, 2, 8];
+// Skipping elements
+const [a, , c] = [1, 2, 3];
+console.log(a, c); // 1 3
 
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] % 2 === 0) {
-    console.log(`Found even number ${numbers[i]} at position ${i}`);
-    break; // Stops the loop after finding the first even number
-  }
-  console.log(`Checked ${numbers[i]}, not even`);
+// Rest pattern
+const [head, ...tail] = [1, 2, 3, 4, 5];
+console.log(head); // 1
+console.log(tail); // [2, 3, 4, 5]
+
+// Default values
+const [x = 0, y = 0, z = 0] = [1, 2];
+console.log(x, y, z); // 1 2 0
+
+// 3. Spread operator
+const originalArray = [1, 2, 3];
+
+// Copying arrays
+const copy = [...originalArray];
+console.log(copy); // [1, 2, 3]
+
+// Combining arrays
+const combined = [...originalArray, 4, 5, 6];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+
+// Splitting arrays
+const numbers2 = [1, 2, 3, 4, 5];
+const [first2, second2, ...rest] = numbers2;
+console.log(first2, second2, rest); // 1 2 [3, 4, 5]
+
+// Using spread with functions
+function sum3(a, b, c) {
+  return a + b + c;
 }
-// Output:
-// Checked 7, not even
-// Checked 9, not even
-// Checked 13, not even
-// Found even number 4 at position 3
 
-// 2. Using continue to skip iterations
-console.log('Printing only odd numbers:');
-for (let i = 1; i <= 10; i++) {
-  if (i % 2 === 0) {
-    continue; // Skip even numbers
-  }
-  console.log(`Odd number: ${i}`);
+const numberArgs = [1, 2, 3];
+console.log(sum3(...numberArgs)); // 6
+
+// 4. Array methods that return iterators
+const iterableArray = ['a', 'b', 'c'];
+
+// keys(), values(), entries()
+console.log('Array keys():');
+for (const key of iterableArray.keys()) {
+  console.log(key); // 0, 1, 2
 }
-// Output:
-// Odd number: 1
-// Odd number: 3
-// Odd number: 5
-// Odd number: 7
-// Odd number: 9
 
-// ---- LOOP WITH MULTIPLE VARIABLES ----
+console.log('Array values():');
+for (const value of iterableArray.values()) {
+  console.log(value); // 'a', 'b', 'c'
+}
 
-// 1. Initializing and updating multiple variables
-for (let i = 0, j = 10; i <= 10; i++, j--) {
-  console.log(`i: ${i}, j: ${j}`);
+console.log('Array entries():');
+for (const [index, value] of iterableArray.entries()) {
+  console.log(`${index}: ${value}`); // '0: a', '1: b', '2: c'
+}
+
+// ---- ARRAY-LIKE OBJECTS ----
+
+// Some objects in JavaScript look like arrays but aren't true arrays
+function exampleFunc() {
+  console.log(arguments); // Arguments object - array-like but not a true array
+  console.log(Array.isArray(arguments)); // false
   
-  // Only show first 3 iterations for brevity
-  if (i >= 2) break;
+  // Converting to a real array:
+  const argsArray = Array.from(arguments);
+  // or: const argsArray = [...arguments];
+  
+  console.log(Array.isArray(argsArray)); // true
+  
+  // Now we can use array methods
+  console.log(argsArray.map(x => x * 2));
 }
-// Output:
-// i: 0, j: 10
-// i: 1, j: 9
-// i: 2, j: 8
 
-// ---- FOR...OF LOOP (ES6) ----
-
-// Iterates over iterable objects (arrays, strings, maps, sets, etc.)
-// Syntax: for (variable of iterable) { code block }
-
-// 1. Iterating over array elements
-const colors = ['red', 'green', 'blue', 'yellow'];
-
-console.log('Colors using for...of:');
-for (const color of colors) {
-  console.log(color);
-}
-// Output:
-// red
-// green
-// blue
-// yellow
-
-// 2. Iterating over string characters
-const message = 'Hello';
-
-console.log('Characters using for...of:');
-for (const char of message) {
-  console.log(char);
-}
-// Output:
-// H
-// e
-// l
-// l
-// o
-
-// 3. Iterating with index using entries()
-console.log('Colors with index using for...of:');
-for (const [index, color] of colors.entries()) {
-  console.log(`Color ${index + 1}: ${color}`);
-}
-// Output:
-// Color 1: red
-// Color 2: green
-// Color 3: blue
-// Color 4: yellow
-
-// ---- FOR...IN LOOP ----
-
-// Iterates over all enumerable properties of an object
-// Syntax: for (variable in object) { code block }
-// Note: Not recommended for arrays if order matters
-
-// 1. Iterating over object properties
-const person = {
-  name: 'Alice',
-  age: 30,
-  job: 'Developer',
-  city: 'New York'
-};
-
-console.log('Person properties using for...in:');
-for (const property in person) {
-  console.log(`${property}: ${person[property]}`);
-}
-// Output:
-// name: Alice
-// age: 30
-// job: Developer
-// city: New York
-
-// 2. Using for...in with arrays (not recommended, but possible)
-const scores = [85, 92, 78, 90];
-
-console.log('Scores using for...in (note: not recommended for arrays):');
-for (const index in scores) {
-  console.log(`Index ${index}: ${scores[index]}`);
-}
-// Output:
-// Index 0: 85
-// Index 1: 92
-// Index 2: 78
-// Index 3: 90
+exampleFunc(1, 2, 3); // [2, 4, 6]
 
 // ---- PERFORMANCE CONSIDERATIONS ----
 
-// 1. Caching array length for better performance
-const largeArray = new Array(1000).fill('item');
+// 1. Pre-allocating arrays for better performance
+console.time('Dynamic growth');
+const dynamicArray = [];
+for (let i = 0; i < 1000000; i++) {
+  dynamicArray.push(i);
+}
+console.timeEnd('Dynamic growth');
 
-console.log('Efficient array iteration:');
-// Less efficient: checks length each iteration
-// for (let i = 0; i < largeArray.length; i++) { ... }
+console.time('Pre-allocated');
+const preAllocated = new Array(1000000);
+for (let i = 0; i < 1000000; i++) {
+  preAllocated[i] = i;
+}
+console.timeEnd('Pre-allocated');
 
-// More efficient: caches the length
-const len = largeArray.length;
-for (let i = 0; i < len; i++) {
-  // Skip actual iteration to avoid console spam
-  if (i < 3) {
-    console.log(`Processing item ${i}`);
-  } else if (i === 3) {
-    console.log('... (and so on)');
-    break;
+// 2. Choose the right method
+// - forEach() for simple iteration
+// - for loop for breaking early or complex operations
+// - map() when transforming all elements
+// - filter() when selecting a subset
+// - reduce() when aggregating to a single value
+
+// ---- PRACTICAL ARRAY EXAMPLES ----
+
+// 1. Flattening nested arrays
+const nestedArray = [1, [2, 3], [4, [5, 6]]];
+
+// Using flat with a depth
+console.log(nestedArray.flat(1)); // [1, 2, 3, 4, [5, 6]]
+console.log(nestedArray.flat(2)); // [1, 2, 3, 4, 5, 6]
+
+// Using flat with Infinity for any depth
+const deeplyNested = [1, [2, [3, [4, [5]]]]];
+console.log(deeplyNested.flat(Infinity)); // [1, 2, 3, 4, 5]
+
+// 2. Removing falsy values from an array
+const mixedValues = [0, 1, false, 2, '', 3, null, undefined, NaN];
+const truthyValues = mixedValues.filter(Boolean);
+console.log(truthyValues); // [1, 2, 3]
+
+// 3. Creating an array of numbers
+// Creates an array [0, 1, 2, ..., 9]
+const range = Array.from({ length: 10 }, (_, i) => i);
+console.log(range); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// 4. Finding the maximum/minimum in an array
+const values = [5, 8, 2, 10, 3];
+console.log('Maximum:', Math.max(...values)); // 10
+console.log('Minimum:', Math.min(...values)); // 2
+
+// 5. Grouping objects by a property
+const students = [
+  { name: 'Alice', grade: 'A' },
+  { name: 'Bob', grade: 'B' },
+  { name: 'Carol', grade: 'A' },
+  { name: 'Dave', grade: 'C' },
+  { name: 'Eve', grade: 'B' }
+];
+
+const studentsByGrade = students.reduce((groups, student) => {
+  const grade = student.grade;
+  if (!groups[grade]) {
+    groups[grade] = [];
   }
-}
-// Output:
-// Processing item 0
-// Processing item 1
-// Processing item 2
-// ... (and so on)
+  groups[grade].push(student);
+  return groups;
+}, {});
 
-// ---- COMMON FOR LOOP PATTERNS ----
+console.log(studentsByGrade);
+// {
+//   A: [{name: 'Alice', grade: 'A'}, {name: 'Carol', grade: 'A'}],
+//   B: [{name: 'Bob', grade: 'B'}, {name: 'Eve', grade: 'B'}],
+//   C: [{name: 'Dave', grade: 'C'}]
+// }
 
-// 1. Building a string from array elements
-const words = ['JavaScript', 'is', 'awesome'];
-let sentence = '';
-
-for (let i = 0; i < words.length; i++) {
-  sentence += words[i];
-  // Add space between words, but not after the last word
-  if (i < words.length - 1) {
-    sentence += ' ';
+// 6. Shuffling an array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  const shuffled = [...array]; // Create a copy
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
   }
+  return shuffled;
 }
-console.log(`Built sentence: "${sentence}"`);
-// Output: Built sentence: "JavaScript is awesome"
 
-// 2. Filtering array elements
-const allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const evenNumbers = [];
-
-for (let i = 0; i < allNumbers.length; i++) {
-  if (allNumbers[i] % 2 === 0) {
-    evenNumbers.push(allNumbers[i]);
-  }
-}
-console.log('Even numbers:', evenNumbers);
-// Output: Even numbers: [2, 4, 6, 8, 10]
-
-// 3. Transforming array elements (map-like operation)
-const originalValues = [1, 2, 3, 4, 5];
-const doubledValues = [];
-
-for (let i = 0; i < originalValues.length; i++) {
-  doubledValues.push(originalValues[i] * 2);
-}
-console.log('Doubled values:', doubledValues);
-// Output: Doubled values: [2, 4, 6, 8, 10]
-
-// 4. Accumulating values (reduce-like operation)
-const prices = [29.99, 9.99, 4.95, 14.50];
-let total = 0;
-
-for (let i = 0; i < prices.length; i++) {
-  total += prices[i];
-}
-console.log(`Total price: $${total.toFixed(2)}`);
-// Output: Total price: $59.43
-
-// ---- MODERN ALTERNATIVES TO FOR LOOPS ----
-
-// 1. Array.forEach()
-console.log('Using forEach:');
-colors.forEach((color, index) => {
-  console.log(`Color ${index + 1}: ${color}`);
-});
-
-// 2. Array.map() for transforming elements
-const doubled = originalValues.map(value => value * 2);
-console.log('Doubled with map():', doubled);
-
-// 3. Array.filter() for filtering elements
-const evens = allNumbers.filter(num => num % 2 === 0);
-console.log('Filtered with filter():', evens);
-
-// 4. Array.reduce() for accumulating values
-const sum = prices.reduce((acc, price) => acc + price, 0);
-console.log(`Sum with reduce(): $${sum.toFixed(2)}`);
-
-// ---- LABEL STATEMENTS WITH FOR LOOPS ----
-
-// Labels allow you to break or continue specific loops when nested
-outerLoop: for (let i = 0; i < 3; i++) {
-  console.log(`Outer loop: ${i}`);
-  
-  innerLoop: for (let j = 0; j < 3; j++) {
-    if (i === 1 && j === 1) {
-      console.log('Breaking out of outer loop!');
-      break outerLoop; // Exits both loops
-    }
-    console.log(`  Inner loop: ${j}`);
-  }
-}
-// Output:
-// Outer loop: 0
-//   Inner loop: 0
-//   Inner loop: 1
-//   Inner loop: 2
-// Outer loop: 1
-//   Inner loop: 0
-// Breaking out of outer loop!
+const orderedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log('Shuffled array:', shuffleArray(orderedArray));
