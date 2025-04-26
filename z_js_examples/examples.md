@@ -442,3 +442,125 @@ nums3 = [2, 1, 3]
 console.log(goldilocks_approved(nums3))
 
 ```
+
+
+```js
+
+function nb(x) {
+    let res = ''
+    for (let i = 0; i < x; i++) {
+        res += 'na'
+    }
+    res += ' batman!'
+    return res
+}
+
+console.log(nb(5))
+```
+
+
+```js
+
+function find_villain(crowd, villain) {
+    res = []
+    for (let [i, person] of crowd.entries()) {
+        if (person === villain) res.push(i)
+    }
+    return res
+}
+
+
+
+let crowd = ['Batman', 'The Joker', 'Alfred Pennyworth', 'Robin', 'The Joker', 'Catwoman', 'The Joker']
+let villain = 'The Joker'
+console.log(find_villain(crowd, villain))
+
+```
+
+
+```js
+function get_odds(nums) {
+    return nums.filter((x) => x % 2 != 0)
+}
+
+let nums = [1, 2, 3, 4]
+console.log(get_odds(nums))
+
+let nums2 = [2, 4, 6, 8]
+console.log(get_odds(nums2))
+```
+
+
+
+
+
+```js
+function up_and_down(lst) {
+    let res = 0
+    for (let num of lst) {
+        if (num % 2 != 0) {
+            res += 1
+        } else {
+            res -= 1
+        }
+    }
+    return res
+}
+
+
+let lst = [1, 2, 3]
+console.log(up_and_down(lst))
+
+let lst2 = [1, 3, 5]
+console.log(up_and_down(lst2))
+
+let lst3 = [2, 4, 10, 2]
+console.log(up_and_down(lst3))
+```
+
+
+
+```js
+function running_sum(superhero_stats) {
+    
+    let i = 0
+    while(i < superhero_stats.length) {
+        superhero_stats[i] = i != 0 ? 
+        superhero_stats[i] + superhero_stats[i-1] :
+        superhero_stats[i]
+        i += 1
+    }
+    return superhero_stats
+}
+
+
+
+let superhero_stats = [1, 2, 3, 4]
+console.log(running_sum(superhero_stats))
+
+let superhero_stats2 = [1, 1, 1, 1, 1]
+console.log(running_sum(superhero_stats2))
+
+let superhero_stats3 = [3, 1, 2, 10, 1]
+console.log(running_sum(superhero_stats3))
+```
+
+```js
+const merge_intervals = (intervals) => {
+  if (!intervals.length) return [];
+
+  intervals.sort((a, b) => a[0] - b[0]);
+  const merged = [intervals[0]];
+
+  for (let [start, end] of intervals) {
+    const last = merged[merged.length - 1];
+    if (start <= last[1]) {
+      last[1] = Math.max(last[1], end);
+    } else {
+      merged.push([start, end]);
+    }
+  }
+
+  return merged;
+};
+```
